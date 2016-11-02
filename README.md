@@ -1,6 +1,6 @@
 # PixelVision² Updater Tool
 
-###This tool was created by [< The master />](https://steamcommunity.com/id/themaster1004). I only update it here for faster download speed and a better overview. The original thread on the steam forums can be found [here](https://steamcommunity.com/groups/pixelvision2/discussions/0/617329920700223960/)
+###This tool was created by [WittyAdrian](http://steamcommunity.com/id/WittyAdrian/). I only update it here for faster download speed and a better overview. The original thread on the steam forums can be found [here](https://steamcommunity.com/groups/pixelvision2/discussions/0/617329920700223960/)
 
 >It's my pleasure to present to everyone our updated and improved PixelVision² Updater tool. It's a super simple auto-updater that downloads the latest version of the skin and extracts it for you. Credits to WittyAdrian for coding the program.
 
