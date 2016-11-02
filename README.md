@@ -1,4 +1,4 @@
-# PixelVision² Updater Tool
+# [PixelVision²](https://github.com/somini/Pixelvision2) Updater Tool
 
 ###This tool was created by [WittyAdrian](http://steamcommunity.com/id/WittyAdrian/). I only update it here for faster download speed and a better overview. The original thread on the steam forums can be found [here](https://steamcommunity.com/groups/pixelvision2/discussions/0/617329920700223960/)
 
