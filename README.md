@@ -21,6 +21,8 @@ Our tool automatically finds your Steam directory for you, though you can change
 # Notes
 > We use our own custom web service to ensure you always have a download link available for redundancy in the event that one goes down.
 
+You can check out the PixelVision² Changelog [here](https://github.com/somini/Pixelvision2/blob/master/Change%20Log.txt), [here](https://github.com/somini/Pixelvision2/releases) and [here](https://github.com/somini/Pixelvision2/commits/master).
+
 ## Screenshots
 ![Main Window](https://i.imgur.com/uXOwnfV.png)
 
