@@ -992,176 +992,240 @@ namespace Unzipper
 
 		private void InitializeComponent()
 		{
-			this.components = new Container();
-			ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form1));
-			this.sourceBox = new TextBox();
-			this.label1 = new Label();
-			this.downloadBtn = new Button();
-			this.extractBtn = new Button();
-			this.label2 = new Label();
-			this.targetBox = new TextBox();
-			this.wipeCheck = new CheckBox();
-			this.backgroundUpdater = new BackgroundWorker();
-			this.statusLbl = new Label();
-			this.backgroundExtracter = new BackgroundWorker();
-			this.label3 = new Label();
-			this.targetBrowser = new FolderBrowserDialog();
-			this.browseBtn = new Button();
-			this.betaCheck = new CheckBox();
-			this.restartCheck = new CheckBox();
-			this.restartTimer = new Timer(this.components);
-			this.restartTooltip = new ToolTip(this.components);
-			this.updateLbl = new Label();
-			this.settingsBtn = new Button();
-			this.legacyTooltip = new ToolTip(this.components);
-			base.SuspendLayout();
-			this.sourceBox.BackColor = Color.White;
-			this.sourceBox.Enabled = false;
-			this.sourceBox.ForeColor = Color.Black;
-			this.sourceBox.Location = new Point(12, 25);
-			this.sourceBox.Name = "sourceBox";
-			this.sourceBox.ReadOnly = true;
-			this.sourceBox.Size = new Size(297, 20);
-			this.sourceBox.TabIndex = 2;
-			this.label1.AutoSize = true;
-			this.label1.Location = new Point(10, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new Size(90, 13);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Download source";
-			this.downloadBtn.Enabled = false;
-			this.downloadBtn.Location = new Point(315, 23);
-			this.downloadBtn.Name = "downloadBtn";
-			this.downloadBtn.Size = new Size(95, 23);
-			this.downloadBtn.TabIndex = 3;
-			this.downloadBtn.Text = "Download";
-			this.downloadBtn.UseVisualStyleBackColor = true;
-			this.downloadBtn.Click += new EventHandler(this.downloadBtn_Click);
-			this.extractBtn.Enabled = false;
-			this.extractBtn.Location = new Point(315, 90);
-			this.extractBtn.Name = "extractBtn";
-			this.extractBtn.Size = new Size(95, 23);
-			this.extractBtn.TabIndex = 7;
-			this.extractBtn.Text = "Install";
-			this.extractBtn.UseVisualStyleBackColor = true;
-			this.extractBtn.Click += new EventHandler(this.extractBtn_Click);
-			this.label2.AutoSize = true;
-			this.label2.Location = new Point(10, 76);
-			this.label2.Name = "label2";
-			this.label2.Size = new Size(86, 13);
-			this.label2.TabIndex = 4;
-			this.label2.Text = "PixelVision folder";
-			this.targetBox.Location = new Point(12, 92);
-			this.targetBox.Name = "targetBox";
-			this.targetBox.Size = new Size(232, 20);
-			this.targetBox.TabIndex = 5;
-			this.targetBox.Text = "C:\\Program Files (x86)\\Steam\\skins\\PixelVision";
-			this.targetBox.TextChanged += new EventHandler(this.targetBox_TextChanged);
-			this.wipeCheck.AutoSize = true;
-			this.wipeCheck.Location = new Point(12, 53);
-			this.wipeCheck.Name = "wipeCheck";
-			this.wipeCheck.Size = new Size(90, 17);
-			this.wipeCheck.TabIndex = 3;
-			this.wipeCheck.Text = "Wipe settings";
-			this.wipeCheck.UseVisualStyleBackColor = true;
-			this.backgroundUpdater.DoWork += new DoWorkEventHandler(this.backgroundUpdater_DoWork);
-			this.backgroundUpdater.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundUpdater_RunWorkerCompleted);
-			this.statusLbl.AutoSize = true;
-			this.statusLbl.ForeColor = Color.Black;
-			this.statusLbl.Location = new Point(48, 119);
-			this.statusLbl.Name = "statusLbl";
-			this.statusLbl.Size = new Size(33, 13);
-			this.statusLbl.TabIndex = 0;
-			this.statusLbl.Text = "Idle...";
-			this.backgroundExtracter.DoWork += new DoWorkEventHandler(this.backgroundExtracter_DoWork);
-			this.backgroundExtracter.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundExtracter_RunWorkerCompleted);
-			this.label3.AutoSize = true;
-			this.label3.Location = new Point(9, 119);
-			this.label3.Name = "label3";
-			this.label3.Size = new Size(40, 13);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Status:";
-			this.targetBrowser.RootFolder = Environment.SpecialFolder.MyComputer;
-			this.browseBtn.Location = new Point(250, 90);
-			this.browseBtn.Name = "browseBtn";
-			this.browseBtn.Size = new Size(59, 23);
-			this.browseBtn.TabIndex = 6;
-			this.browseBtn.Text = "Browse";
-			this.browseBtn.UseVisualStyleBackColor = true;
-			this.browseBtn.Click += new EventHandler(this.browseBtn_Click);
-			this.betaCheck.AutoSize = true;
-			this.betaCheck.Enabled = false;
-			this.betaCheck.Location = new Point(108, 53);
-			this.betaCheck.Name = "betaCheck";
-			this.betaCheck.Size = new Size(61, 17);
-			this.betaCheck.TabIndex = 4;
-			this.betaCheck.Text = "Legacy";
-			this.betaCheck.UseVisualStyleBackColor = true;
-			this.betaCheck.CheckedChanged += new EventHandler(this.betaCheck_CheckedChanged);
-			this.betaCheck.MouseHover += new EventHandler(this.betaCheck_MouseHover);
-			this.restartCheck.AutoSize = true;
-			this.restartCheck.Location = new Point(175, 53);
-			this.restartCheck.Name = "restartCheck";
-			this.restartCheck.Size = new Size(93, 17);
-			this.restartCheck.TabIndex = 8;
-			this.restartCheck.Text = "Restart Steam";
-			this.restartCheck.UseVisualStyleBackColor = true;
-			this.restartCheck.CheckedChanged += new EventHandler(this.restartCheck_CheckedChanged);
-			this.restartCheck.MouseHover += new EventHandler(this.restartCheck_MouseHover);
-			this.restartTimer.Interval = 1000;
-			this.restartTimer.Tick += new EventHandler(this.restartTimer_Tick);
-			this.restartTooltip.AutoPopDelay = 500000;
-			this.restartTooltip.InitialDelay = 10;
-			this.restartTooltip.ReshowDelay = 5;
-			this.updateLbl.AutoSize = true;
-			this.updateLbl.Cursor = Cursors.Hand;
-			this.updateLbl.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Underline, GraphicsUnit.Point, 0);
-			this.updateLbl.ForeColor = Color.Blue;
-			this.updateLbl.Location = new Point(299, 119);
-			this.updateLbl.Name = "updateLbl";
-			this.updateLbl.Size = new Size(114, 13);
-			this.updateLbl.TabIndex = 9;
-			this.updateLbl.Text = "New version available!";
-			this.updateLbl.Visible = false;
-			this.updateLbl.Click += new EventHandler(this.updateLbl_Click);
-			this.settingsBtn.Location = new Point(315, 57);
-			this.settingsBtn.Name = "settingsBtn";
-			this.settingsBtn.Size = new Size(95, 23);
-			this.settingsBtn.TabIndex = 10;
-			this.settingsBtn.Text = "Skin Settings";
-			this.settingsBtn.UseVisualStyleBackColor = true;
-			this.settingsBtn.Click += new EventHandler(this.settingsBtn_Click);
-			this.legacyTooltip.AutoPopDelay = 500000;
-			this.legacyTooltip.InitialDelay = 10;
-			this.legacyTooltip.ReshowDelay = 5;
-			base.AutoScaleDimensions = new SizeF(6f, 13f);
-			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(422, 140);
-			base.Controls.Add(this.settingsBtn);
-			base.Controls.Add(this.updateLbl);
-			base.Controls.Add(this.restartCheck);
-			base.Controls.Add(this.betaCheck);
-			base.Controls.Add(this.browseBtn);
-			base.Controls.Add(this.label3);
-			base.Controls.Add(this.statusLbl);
-			base.Controls.Add(this.wipeCheck);
-			base.Controls.Add(this.extractBtn);
-			base.Controls.Add(this.label2);
-			base.Controls.Add(this.targetBox);
-			base.Controls.Add(this.downloadBtn);
-			base.Controls.Add(this.label1);
-			base.Controls.Add(this.sourceBox);
-			base.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
-			base.MaximizeBox = false;
-			this.MaximumSize = new Size(2000, 179);
-			this.MinimumSize = new Size(438, 179);
-			base.Name = "Form1";
-			this.Text = "PixelVision² Updater v1.0";
-			base.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
-			base.Load += new EventHandler(this.Form1_Load);
-			base.Resize += new EventHandler(this.Form1_Resize);
-			base.ResumeLayout(false);
-			base.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.sourceBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.downloadBtn = new System.Windows.Forms.Button();
+            this.extractBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.targetBox = new System.Windows.Forms.TextBox();
+            this.wipeCheck = new System.Windows.Forms.CheckBox();
+            this.backgroundUpdater = new System.ComponentModel.BackgroundWorker();
+            this.statusLbl = new System.Windows.Forms.Label();
+            this.backgroundExtracter = new System.ComponentModel.BackgroundWorker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.targetBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.browseBtn = new System.Windows.Forms.Button();
+            this.betaCheck = new System.Windows.Forms.CheckBox();
+            this.restartCheck = new System.Windows.Forms.CheckBox();
+            this.restartTimer = new System.Windows.Forms.Timer(this.components);
+            this.restartTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.updateLbl = new System.Windows.Forms.Label();
+            this.settingsBtn = new System.Windows.Forms.Button();
+            this.legacyTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.SuspendLayout();
+            // 
+            // sourceBox
+            // 
+            this.sourceBox.BackColor = System.Drawing.Color.White;
+            this.sourceBox.Enabled = false;
+            this.sourceBox.ForeColor = System.Drawing.Color.Black;
+            this.sourceBox.Location = new System.Drawing.Point(12, 25);
+            this.sourceBox.Name = "sourceBox";
+            this.sourceBox.ReadOnly = true;
+            this.sourceBox.Size = new System.Drawing.Size(297, 20);
+            this.sourceBox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Download source";
+            // 
+            // downloadBtn
+            // 
+            this.downloadBtn.Enabled = false;
+            this.downloadBtn.Location = new System.Drawing.Point(315, 23);
+            this.downloadBtn.Name = "downloadBtn";
+            this.downloadBtn.Size = new System.Drawing.Size(95, 23);
+            this.downloadBtn.TabIndex = 3;
+            this.downloadBtn.Text = "Download";
+            this.downloadBtn.UseVisualStyleBackColor = true;
+            this.downloadBtn.Click += new System.EventHandler(this.downloadBtn_Click);
+            // 
+            // extractBtn
+            // 
+            this.extractBtn.Enabled = false;
+            this.extractBtn.Location = new System.Drawing.Point(315, 90);
+            this.extractBtn.Name = "extractBtn";
+            this.extractBtn.Size = new System.Drawing.Size(95, 23);
+            this.extractBtn.TabIndex = 7;
+            this.extractBtn.Text = "Install";
+            this.extractBtn.UseVisualStyleBackColor = true;
+            this.extractBtn.Click += new System.EventHandler(this.extractBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "PixelVision folder";
+            // 
+            // targetBox
+            // 
+            this.targetBox.Location = new System.Drawing.Point(12, 92);
+            this.targetBox.Name = "targetBox";
+            this.targetBox.Size = new System.Drawing.Size(232, 20);
+            this.targetBox.TabIndex = 5;
+            this.targetBox.Text = "C:\\Program Files (x86)\\Steam\\skins\\PixelVision";
+            this.targetBox.TextChanged += new System.EventHandler(this.targetBox_TextChanged);
+            // 
+            // wipeCheck
+            // 
+            this.wipeCheck.AutoSize = true;
+            this.wipeCheck.Location = new System.Drawing.Point(12, 53);
+            this.wipeCheck.Name = "wipeCheck";
+            this.wipeCheck.Size = new System.Drawing.Size(90, 17);
+            this.wipeCheck.TabIndex = 3;
+            this.wipeCheck.Text = "Wipe settings";
+            this.wipeCheck.UseVisualStyleBackColor = true;
+            // 
+            // backgroundUpdater
+            // 
+            this.backgroundUpdater.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundUpdater_DoWork);
+            this.backgroundUpdater.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundUpdater_RunWorkerCompleted);
+            // 
+            // statusLbl
+            // 
+            this.statusLbl.AutoSize = true;
+            this.statusLbl.ForeColor = System.Drawing.Color.Black;
+            this.statusLbl.Location = new System.Drawing.Point(48, 119);
+            this.statusLbl.Name = "statusLbl";
+            this.statusLbl.Size = new System.Drawing.Size(33, 13);
+            this.statusLbl.TabIndex = 0;
+            this.statusLbl.Text = "Idle...";
+            // 
+            // backgroundExtracter
+            // 
+            this.backgroundExtracter.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundExtracter_DoWork);
+            this.backgroundExtracter.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundExtracter_RunWorkerCompleted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Status:";
+            // 
+            // targetBrowser
+            // 
+            this.targetBrowser.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            // 
+            // browseBtn
+            // 
+            this.browseBtn.Location = new System.Drawing.Point(250, 90);
+            this.browseBtn.Name = "browseBtn";
+            this.browseBtn.Size = new System.Drawing.Size(59, 23);
+            this.browseBtn.TabIndex = 6;
+            this.browseBtn.Text = "Browse";
+            this.browseBtn.UseVisualStyleBackColor = true;
+            this.browseBtn.Click += new System.EventHandler(this.browseBtn_Click);
+            // 
+            // betaCheck
+            // 
+            this.betaCheck.AutoSize = true;
+            this.betaCheck.Enabled = false;
+            this.betaCheck.Location = new System.Drawing.Point(108, 53);
+            this.betaCheck.Name = "betaCheck";
+            this.betaCheck.Size = new System.Drawing.Size(61, 17);
+            this.betaCheck.TabIndex = 4;
+            this.betaCheck.Text = "Legacy";
+            this.betaCheck.UseVisualStyleBackColor = true;
+            this.betaCheck.CheckedChanged += new System.EventHandler(this.betaCheck_CheckedChanged);
+            this.betaCheck.MouseHover += new System.EventHandler(this.betaCheck_MouseHover);
+            // 
+            // restartCheck
+            // 
+            this.restartCheck.AutoSize = true;
+            this.restartCheck.Location = new System.Drawing.Point(175, 53);
+            this.restartCheck.Name = "restartCheck";
+            this.restartCheck.Size = new System.Drawing.Size(93, 17);
+            this.restartCheck.TabIndex = 8;
+            this.restartCheck.Text = "Restart Steam";
+            this.restartCheck.UseVisualStyleBackColor = true;
+            this.restartCheck.CheckedChanged += new System.EventHandler(this.restartCheck_CheckedChanged);
+            this.restartCheck.MouseHover += new System.EventHandler(this.restartCheck_MouseHover);
+            // 
+            // restartTimer
+            // 
+            this.restartTimer.Interval = 1000;
+            this.restartTimer.Tick += new System.EventHandler(this.restartTimer_Tick);
+            // 
+            // restartTooltip
+            // 
+            this.restartTooltip.AutoPopDelay = 500000;
+            this.restartTooltip.InitialDelay = 10;
+            this.restartTooltip.ReshowDelay = 5;
+            // 
+            // updateLbl
+            // 
+            this.updateLbl.AutoSize = true;
+            this.updateLbl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.updateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateLbl.ForeColor = System.Drawing.Color.Blue;
+            this.updateLbl.Location = new System.Drawing.Point(299, 119);
+            this.updateLbl.Name = "updateLbl";
+            this.updateLbl.Size = new System.Drawing.Size(114, 13);
+            this.updateLbl.TabIndex = 9;
+            this.updateLbl.Text = "New version available!";
+            this.updateLbl.Visible = false;
+            this.updateLbl.Click += new System.EventHandler(this.updateLbl_Click);
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.Location = new System.Drawing.Point(315, 57);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(95, 23);
+            this.settingsBtn.TabIndex = 10;
+            this.settingsBtn.Text = "Skin Settings";
+            this.settingsBtn.UseVisualStyleBackColor = true;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
+            // legacyTooltip
+            // 
+            this.legacyTooltip.AutoPopDelay = 500000;
+            this.legacyTooltip.InitialDelay = 10;
+            this.legacyTooltip.ReshowDelay = 5;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(428, 150);
+            this.Controls.Add(this.settingsBtn);
+            this.Controls.Add(this.updateLbl);
+            this.Controls.Add(this.restartCheck);
+            this.Controls.Add(this.betaCheck);
+            this.Controls.Add(this.browseBtn);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.statusLbl);
+            this.Controls.Add(this.wipeCheck);
+            this.Controls.Add(this.extractBtn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.targetBox);
+            this.Controls.Add(this.downloadBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.sourceBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(2000, 179);
+            this.MinimumSize = new System.Drawing.Size(438, 179);
+            this.Name = "Form1";
+            this.Text = "PixelVision² Updater v1.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 	}
 }

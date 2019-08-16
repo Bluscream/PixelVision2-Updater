@@ -5,13 +5,13 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
-[assembly: AssemblyVersion("1.5.0.0")]
+[assembly: AssemblyVersion("1.6.0.0")]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.Default | DebuggableAttribute.DebuggingModes.DisableOptimizations | DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints | DebuggableAttribute.DebuggingModes.EnableEditAndContinue)]
-[assembly: AssemblyCompany("WittyAdrian")]
+[assembly: AssemblyCompany("WittyAdria, Bluscreamn")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright("Copyright © WittyAdrian 2015")]
 [assembly: AssemblyDescription("Updater for the PixelVision² Steam skin.")]
-[assembly: AssemblyFileVersion("1.5.0.0")]
+[assembly: AssemblyFileVersion("1.6.0.0")]
 [assembly: AssemblyProduct("PixelVision² Updater")]
 [assembly: AssemblyTitle("PixelVision² Updater")]
 [assembly: AssemblyTrademark("")]

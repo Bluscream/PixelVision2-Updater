@@ -356,59 +356,78 @@ namespace Pixelvision_Updater
 
 		private void InitializeComponent()
 		{
-			this.components = new Container();
-			ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(SettingsForm));
-			this.cancelBtn = new Button();
-			this.saveBtn = new Button();
-			this.label1 = new Label();
-			this.saveRestartBtn = new Button();
-			this.restartTimer = new Timer(this.components);
-			base.SuspendLayout();
-			this.cancelBtn.Location = new Point(247, 267);
-			this.cancelBtn.Name = "cancelBtn";
-			this.cancelBtn.Size = new Size(75, 23);
-			this.cancelBtn.TabIndex = 2;
-			this.cancelBtn.Text = "Cancel";
-			this.cancelBtn.UseVisualStyleBackColor = true;
-			this.cancelBtn.Click += new EventHandler(this.cancelBtn_Click);
-			this.saveBtn.Location = new Point(166, 267);
-			this.saveBtn.Name = "saveBtn";
-			this.saveBtn.Size = new Size(75, 23);
-			this.saveBtn.TabIndex = 1;
-			this.saveBtn.Text = "Save";
-			this.saveBtn.UseVisualStyleBackColor = true;
-			this.saveBtn.Click += new EventHandler(this.saveBtn_Click);
-			this.label1.AutoSize = true;
-			this.label1.Location = new Point(298, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new Size(0, 13);
-			this.label1.TabIndex = 0;
-			this.saveRestartBtn.Location = new Point(27, 267);
-			this.saveRestartBtn.Name = "saveRestartBtn";
-			this.saveRestartBtn.Size = new Size(133, 23);
-			this.saveRestartBtn.TabIndex = 3;
-			this.saveRestartBtn.Text = "Save and restart Steam";
-			this.saveRestartBtn.UseVisualStyleBackColor = true;
-			this.saveRestartBtn.Click += new EventHandler(this.saveRestartBtn_Click);
-			this.restartTimer.Interval = 1000;
-			this.restartTimer.Tick += new EventHandler(this.restartTimer_Tick);
-			base.AutoScaleDimensions = new SizeF(6f, 13f);
-			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(332, 302);
-			base.Controls.Add(this.saveRestartBtn);
-			base.Controls.Add(this.label1);
-			base.Controls.Add(this.saveBtn);
-			base.Controls.Add(this.cancelBtn);
-			base.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-			base.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
-			base.MaximizeBox = false;
-			base.Name = "SettingsForm";
-			base.StartPosition = FormStartPosition.CenterParent;
-			this.Text = "PixelVision² Settings";
-			base.Load += new EventHandler(this.SettingsForm_Load);
-			base.SizeChanged += new EventHandler(this.SettingsForm_SizeChanged);
-			base.ResumeLayout(false);
-			base.PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.saveRestartBtn = new System.Windows.Forms.Button();
+            this.restartTimer = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(247, 267);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 2;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(166, 267);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.TabIndex = 1;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(298, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 0;
+            // 
+            // saveRestartBtn
+            // 
+            this.saveRestartBtn.Location = new System.Drawing.Point(27, 267);
+            this.saveRestartBtn.Name = "saveRestartBtn";
+            this.saveRestartBtn.Size = new System.Drawing.Size(133, 23);
+            this.saveRestartBtn.TabIndex = 3;
+            this.saveRestartBtn.Text = "Save and restart Steam";
+            this.saveRestartBtn.UseVisualStyleBackColor = true;
+            this.saveRestartBtn.Click += new System.EventHandler(this.saveRestartBtn_Click);
+            // 
+            // restartTimer
+            // 
+            this.restartTimer.Interval = 1000;
+            this.restartTimer.Tick += new System.EventHandler(this.restartTimer_Tick);
+            // 
+            // SettingsForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(332, 302);
+            this.Controls.Add(this.saveRestartBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.cancelBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "PixelVision² Settings";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
+            this.SizeChanged += new System.EventHandler(this.SettingsForm_SizeChanged);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
 		}
 	}
 }

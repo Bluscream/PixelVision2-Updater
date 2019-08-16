@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C454028-FFE0-4DEB-A4E8-28D47BCFA106}"
 	ProjectSection(SolutionItems) = preProject
 		..\PixelVision Updater\.gitignore = ..\PixelVision Updater\.gitignore
+		PixelVision Updater.ico = PixelVision Updater.ico
 		README.md = README.md
 	EndProjectSection
 EndProject
