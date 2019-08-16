@@ -265,7 +265,12 @@ namespace Unzipper
 		}
 
 		private void downloadBtn_Click(object sender, EventArgs e)
-		{
+		{;
+            if (this.downloadBtn.Text == "Retry") {
+                this.downloadBtn.Text = "Download";
+                this.Form1_Load(null, null);
+                return;
+            }
 			bool flag = this.downloadPath != "";
 			if (flag)
 			{
@@ -275,7 +280,8 @@ namespace Unzipper
 					Directory.Delete(this.downloadPath, true);
 				}
 			}
-			HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(this.sourceBox.Text);
+            var url = this.sourceBox.Text;
+			HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
 			httpWebRequest.Timeout = 15000;
 			httpWebRequest.Method = "HEAD";
 			try
@@ -284,9 +290,9 @@ namespace Unzipper
 				{
 				}
 			}
-			catch (Exception var_5_85)
+			catch (Exception ex)
 			{
-				this.statusLbl.Text = "Could not resolve download. Please try again later.";
+                    this.DownloadException(ex, url);
 				return;
 			}
 			this.tempLocation = Path.GetTempPath() + "temp_" + DateTime.Now.ToString("MM\\-dd\\-yyyy_HH\\-mm\\-ss");
@@ -316,6 +322,11 @@ namespace Unzipper
 			this.enableElements(true);
 			this.extractBtn.Enabled = true;
 		}
+
+        private void retryElements() {
+            this.downloadBtn.Text = "Retry";
+            this.downloadBtn.Enabled = true;
+        }
 
 		private void enableElements(bool arg)
 		{
@@ -435,8 +446,7 @@ namespace Unzipper
 		private void backgroundUpdater_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			bool flag = this.connection;
-			if (flag)
-			{
+			if (flag) {
 				this.statusLbl.Text = "Idle...";
 				Regex regex = new Regex("<[^>]+>");
 				bool flag2 = regex.IsMatch(this.backgroundResult);
@@ -582,7 +592,9 @@ namespace Unzipper
 						}
 					}
 				}
-			}
+			} else {
+                this.retryElements();
+            }
 		}
 
 		private bool updateAvailable()
@@ -616,6 +628,11 @@ namespace Unzipper
 			}
 		}
 
+        private void DownloadException(Exception ex, string url = "") {
+            this.statusLbl.Text = "Download Error (" + ex.Message + ")";
+            MessageBox.Show($"Error downloading\n\n{url}\n{ex.Message}\n{ex.StackTrace}");
+        }
+
 		private void updateVersion()
 		{
 			try
@@ -623,7 +640,8 @@ namespace Unzipper
 				FileInfo fileInfo = new FileInfo(Assembly.GetExecutingAssembly().Location);
 				this.hashString = this.HashFile(fileInfo.Name);
 				File.Move(fileInfo.FullName, fileInfo.DirectoryName + "\\" + this.hashString);
-				HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(this.versionUrl);
+                var url = this.versionUrl;
+				HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
 				httpWebRequest.Timeout = 15000;
 				httpWebRequest.Method = "HEAD";
 				try
@@ -632,9 +650,9 @@ namespace Unzipper
 					{
 					}
 				}
-				catch (Exception var_4_8E)
+				catch (Exception ex)
 				{
-					this.statusLbl.Text = "Could not resolve download. Please try again later.";
+                    this.DownloadException(ex, url);
 					return;
 				}
 				this.enableElements(false);
